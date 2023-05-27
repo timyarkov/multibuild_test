@@ -1,0 +1,11 @@
+name: Mock Github actions workflow
+run-name: Mock Github actions for ${{ github.actor }}
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish Gradle Project
+        run: cd mock_gradle_proj && gradle publish
+      - name: Pacakge Maven Project
+        run: cd mock_maven_proj && mvn package

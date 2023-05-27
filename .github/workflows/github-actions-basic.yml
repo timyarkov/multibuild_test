@@ -6,8 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Publish Gradle Project
-        working-directory: ./mock_gradle_proj
+        working-directory: mock_gradle_proj
         run: gradle publish
       - name: Pacakge Maven Project
-        working-directory: ./mock_maven_proj
+        working-directory: mock_maven_proj
         run: mvn package

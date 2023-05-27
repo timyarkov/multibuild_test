@@ -5,9 +5,8 @@ jobs:
   Pretend-to-do-stuff:
     runs-on: ubuntu-latest
     steps:
-      - name: Some stuff
-        run: pwd && ls
-        run: echo ${{ github.workspace }}
+      - name: Where are we
+        run: pwd && ls && echo ${{ github.workspace }}
       - name: Publish Gradle Project
         working-directory: mock_gradle_proj
         run: gradle publish

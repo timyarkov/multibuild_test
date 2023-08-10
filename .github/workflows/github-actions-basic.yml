@@ -19,7 +19,7 @@ jobs:
         run: mvn package
       - name: Build Docker
         working-directory: mock_docker_proj
-        run: docker build -t mock_proj
+        run: docker build . -t mock_proj
       - name: Push Docker
         working-directory: mock_docker_proj
         run: docker push mock_proj

@@ -14,6 +14,12 @@ jobs:
       - name: Publish Gradle Project
         working-directory: mock_gradle_proj
         run: gradle publish
-      - name: Pacakge Maven Project
+      - name: Package Maven Project
         working-directory: mock_maven_proj
         run: mvn package
+      - name: Build Docker
+        working-directory: mock_docker_proj
+        run: docker build -t mock_proj
+      - name: Push Docker
+        working-directory: mock_docker_proj
+        run: docker push mock_proj

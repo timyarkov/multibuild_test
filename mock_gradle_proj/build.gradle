@@ -22,8 +22,8 @@ dependencies {
 
 publishing {
     publications {
-        bootJava(MavenPublication) {
-            artifact tasks.named("run")
+        myLibrary(MavenPublication) {
+            from components.java
         }
     }
 

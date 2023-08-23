@@ -1,9 +1,9 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.0.0'
-    id 'io.spring.dependency-management' version '1.1.0'
+    id 'application'
     id 'java-library'
     id 'maven-publish'
+    id 'org.cyclonedx.bom' version '1.7.4'
 }
 
 group = 'org.example'
@@ -16,15 +16,14 @@ repositories {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
-    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    implementation 'org.apache.logging.log4j:log4j-api:2.20.0'
+    implementation 'org.apache.logging.log4j:log4j-core:2.20.0'
 }
 
 publishing {
     publications {
         bootJava(MavenPublication) {
-            artifact tasks.named("bootJar")
+            artifact tasks.named("run")
         }
     }
 
@@ -34,6 +33,10 @@ publishing {
             url = layout.buildDirectory.dir("repo")
         }
     }
+}
+
+application {
+    mainClass = "Main"
 }
 
 test {
